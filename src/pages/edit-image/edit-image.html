@@ -1,0 +1,24 @@
+<ion-header>
+    <div class="page-title">
+        <div class="back-btn" (click)="navCtrl.pop()">
+            <img src="assets/imgs/Arrow_Left_Back.svg">
+            Image
+        </div>
+        Edit
+    </div>
+</ion-header>
+<ion-content>
+    <div class="img-wrapper">
+        <img [src]="image.src">
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-row align-items-center>
+        <ion-col text-center col-6>
+            <img src="assets/imgs/Crop_Icon.svg" (click)="goToPage('crop')"/>
+        </ion-col>
+        <ion-col text-center col-6>
+            <img src="assets/imgs/Select_Icon.svg" (click)="goToPage('text')"/>
+        </ion-col>
+    </ion-row>
+</ion-footer>

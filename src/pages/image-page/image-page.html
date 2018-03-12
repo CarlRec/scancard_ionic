@@ -1,0 +1,76 @@
+<ion-content>
+    <div class="image-wrapper">
+        <img [src]="image.src" class="saved-img">
+        <button ion-fab color="camera-bg" class="edit-img-btn" *ngIf="success" (click)="editImg()">
+            <img src="assets/imgs/Edit_Image_Icon.svg">
+        </button>
+    </div>
+    <div class="result-wrapper" *ngIf="success">
+        <div class="image-actions">
+            <img src="assets/imgs/Add_to_Folder_Icon.svg">
+            <img src="assets/imgs/Create_New_Contact_icon.svg" (click)="saveContact()">
+            <img src="assets/imgs/Share_Icon.svg" (click)="shareImage()">
+            <img src="assets/imgs/Favorite_Icon.svg" (click)="toFavorites('set')" *ngIf="!image.favorite">
+            <img src="assets/imgs/Favorite_Icon_full_blue.svg" (click)="toFavorites('remove')" *ngIf="image.favorite">
+        </div>
+        <div class="results-actions">
+            <a class="result" *ngFor="let call of image.call" href="tel:{{ call }}">
+                <div class="result-text">
+                    <label>Call</label>
+                    <div class="result-content">
+                        {{ call }}
+                    </div>
+                </div>
+                <span  class="result-anchor">
+                    <img src="assets/imgs/Call_Icon.svg">
+                </span>
+            </a>
+            <a class="result" *ngFor="let browse of image.browse" href="http://{{ browse.replace('http://', '') }}" target="_system">
+                <div class="result-text">
+                    <label>Browse</label>
+                    <div class="result-content">
+                        {{ browse }}
+                    </div>
+                </div>
+                <span  class="result-anchor">
+                    <img src="assets/imgs/Browse_Icon.svg">
+                </span>
+            </a>
+            <a class="result" *ngFor="let email of image.email" href="mailto:{{email}}">
+                <div class="result-text">
+                    <label>Email</label>
+                    <div class="result-content">
+                        {{ email }}
+                    </div>
+                </div>
+                <span  class="result-anchor">
+                    <img src="assets/imgs/Email_Icon.svg">
+                </span>
+            </a>
+            <a class="result" *ngFor="let map of image.map" href="https://www.google.bg/maps/place/{{ map }}">
+                <div class="result-text">
+                    <label>Map</label>
+                    <div class="result-content">
+                        {{ map }}
+                    </div>
+                </div>
+                <span class="result-anchor">
+                    <img src="assets/imgs/Map_Icon.svg">
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="result-wrapper" *ngIf="!success">
+        <div class="sad-face-wrapper">
+            <img src="">
+        </div>
+        <div class="nothing-text">Nothing is found.</div>
+        <div class="try-again" (click)="goToCamera()">
+            <img src="assets/imgs/Camera_Try_Again.svg"><span class="try-text">Try again</span>
+        </div>
+    </div>
+    <div id="canvas-img-wrapper">
+        <canvas id="canvas-image"></canvas>
+    </div>
+</ion-content>
+<custom-footer [param]="-1"></custom-footer>

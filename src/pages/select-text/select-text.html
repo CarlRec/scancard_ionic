@@ -1,0 +1,29 @@
+<ion-header>
+    <div class="page-title">
+        <div class="back-btn" (click)="navCtrl.pop()">
+            <img src="assets/imgs/Arrow_Left_Back.svg">
+            Edit
+        </div>
+        Select
+    </div>
+</ion-header>
+<ion-content id="text-content">
+    <img [src]="image.src" id="croppr-text"/>
+    <div id="canvas-wrapper">
+        <canvas id="canvas"></canvas>
+    </div>
+</ion-content>
+<ion-footer padding>
+    <ion-row align-items-center>
+        <ion-col text-left>
+            <img src="assets/imgs/Search_Google.svg" class="search-google" (click)="getText(0)">
+        </ion-col>
+        <ion-col text-right>
+            <img src="assets/imgs/Search_Facebook.svg" class="search-Facebook" (click)="getText(1)">
+            <img src="assets/imgs/Search_Insta.svg" class="search-Insta" (click)="getText(2)">
+            <img src="assets/imgs/Search_Linkedin.svg" class="search-Linkedin" (click)="getText(3)">
+        </ion-col>
+    </ion-row>
+
+
+</ion-footer>

@@ -1,0 +1,49 @@
+<ion-header>
+    <div class="page-title">
+        <div class="back-btn" (click)="returnBack()">
+            <img src="assets/imgs/Arrow_Left_Back.svg">
+            Folders
+        </div>
+        Add folder
+    </div>
+</ion-header>
+<ion-content padding>
+    <ion-slides [pager]="true" [zoom]="false">
+        <ion-slide>
+            <div class="slide-number">1.</div>
+            <div class="image-wrapper" >
+                <img src="assets/imgs/Illustration_1.svg">
+            </div>
+            <div class="description" >
+                Take a photo about the text you want to read
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div class="slide-number">2.</div>
+            <div class="image-wrapper" >
+                <img src="assets/imgs/Illustration_2.svg">
+            </div>
+            <div class="description" >
+                The app quickly reads the text on the photo
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div class="slide-number">3.</div>
+            <div class="image-wrapper" >
+                <img src="assets/imgs/Illustration_3.svg">
+            </div>
+            <div class="description" >
+                You can easily interact with the text such as call numbers, browse websites, etc.
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div class="slide-number">4.</div>
+            <div class="image-wrapper" >
+                <img src="assets/imgs/Illustration_4.svg">
+            </div>
+            <div class="description" >
+                Crop the photo ot select a part of the text to Google it or share
+            </div>
+        </ion-slide>
+    </ion-slides>
+</ion-content>

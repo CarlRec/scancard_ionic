@@ -1,0 +1,115 @@
+select-text {
+    ion-header {
+        border-bottom: none;
+        background: map_get($colors, camera-bg);
+        .page-title {
+            color: #fff;
+        }
+    }
+
+    #text-content {
+        background: map_get($colors, camera-bg);
+    }
+
+    ion-footer {
+        background: map-get($colors, camera-bg);
+
+        .col {
+            padding: 0;
+        }
+
+        .search-google {
+            height: 44px;
+        }
+
+        .search-Linkedin,
+        .search-Insta,
+        .search-Facebook {
+            height: 30px;
+        }
+
+        .search-Linkedin,
+        .search-Insta {
+            margin-left: 25px;
+        }
+    }
+
+
+    .croppr-container * {
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+
+    .croppr-container img {
+        vertical-align: middle;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .croppr {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .croppr-overlay {
+        background: transparent;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        cursor: crosshair;
+    }
+
+    .croppr-region {
+        //border: 1px dashed rgba(0, 0, 0, 0.5);
+        background: rgba(67, 197, 229, 0.3);
+        position: absolute;
+        z-index: 3;
+        cursor: move;
+        top: 0;
+    }
+
+    .croppr-imageClipped {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .croppr-handle {
+        //border: 1px solid black;
+        //background-color: white;
+        //width: 10px;
+        //height: 10px;
+        background-color: #41c3e3;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 4;
+        top: 0;
+        display: none;
+    }
+
+    .croppr-handle:first-child,
+    .croppr-handle:nth-child(5) {
+        display: block;
+    }
+
+    #canvas-wrapper {
+        height: 0;
+        overflow: hidden;
+    }
+
+}

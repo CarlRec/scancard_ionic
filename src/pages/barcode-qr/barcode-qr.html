@@ -1,0 +1,88 @@
+<ion-header>
+    <div class="page-title">
+        <div class="back-btn" (click)="returnBack()">
+            <img src="assets/imgs/Arrow_Left_Back.svg">
+            More
+        </div>
+        Barcode & QR
+    </div>
+</ion-header>
+
+<ion-content>
+    <ngx-zxing
+        [start]="camStarted"
+        [device]="selectedDevice"
+        [cssClass]="smallVideo"
+        (onCamsFound)="displayCameras($event)"
+        (onScan)="handleQrCodeResult($event)"
+    ></ngx-zxing>
+
+
+
+    <!--<div class="qr-overlay-wrapper" *ngIf="qrOverlay">-->
+        <div class="scan-loader" *ngIf="qrOverlay">
+            <span></span>
+        </div>
+    <!--</div>-->
+
+    <div *ngIf="qrResult && showResult" class="result-wrapper">
+        <div class="results-actions">
+            <div class="result full-text">
+                <div class="result-text">
+                    <label>Full text</label>
+                    <div class="result-content">
+                        {{ qrResult }}
+                    </div>
+                </div>
+            </div>
+            <div class="result">
+                <button ion-button color="cyan-bg" block (click)="newScan()">New Scan</button>
+            </div>
+            <a class="result" *ngFor="let phone of processedResult.phones" href="tel:{{ phone}}">
+                <div class="result-text">
+                    <label>Call</label>
+                    <div class="result-content">
+                        {{ phone }}
+                    </div>
+                </div>
+                <span class="result-anchor">
+                    <img src="assets/imgs/Call_Icon_white.svg">
+                </span>
+            </a>
+            <a class="result" *ngFor="let url of processedResult.urls" href="http://{{ url.replace('http://', '') }}" target="_system">
+                <div class="result-text">
+                    <label>Browse</label>
+                    <div class="result-content">
+                        {{ url }}
+                    </div>
+                </div>
+                <span  class="result-anchor" >
+                    <img src="assets/imgs/Browse_Icon_white.svg">
+                </span>
+            </a>
+            <a class="result" *ngFor="let email of processedResult.emails" href="mailto:{{email}}">
+                <div class="result-text">
+                    <label>Email</label>
+                    <div class="result-content">
+                        {{ email }}
+                    </div>
+                </div>
+                <span  class="result-anchor">
+                    <img src="assets/imgs/Email_Icon_white.svg">
+                </span>
+            </a>
+            <a class="result" *ngFor="let address of processedResult.addresses" href="https://www.google.bg/maps/place/{{address}}">
+                <div class="result-text">
+                    <label>Map</label>
+                    <div class="result-content">
+                        {{ address }}
+                    </div>
+                </div>
+                <span  class="result-anchor">
+                    <img src="assets/imgs/Map_Icon_white.svg">
+                </span>
+            </a>
+        </div>
+    </div>
+
+</ion-content>

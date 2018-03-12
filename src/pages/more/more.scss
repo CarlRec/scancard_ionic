@@ -1,0 +1,12 @@
+more {
+    ion-header {
+        border-bottom: 1px solid #d9d9d9;
+    }
+
+    ion-content .scroll-content,
+    ion-content .fixed-content {
+        background-color: #f5fffe;
+        margin-bottom: 50px;
+        padding-top: 10px;
+    }
+}

@@ -1,0 +1,20 @@
+<ion-footer>
+  <ion-row align-items-center>
+    <ion-col text-center col-3>
+      <img src="assets/imgs/Camera_Off.svg" (click)="changeView($event, 'camera', 'assets/imgs/Camera_On.svg', 'assets/imgs/Camera_Off.svg')" class="view-nav" *ngIf="param != 0"/>
+      <img src="assets/imgs/Camera_On.svg" class="view-nav" *ngIf="param == 0"/>
+    </ion-col>
+    <ion-col text-center col-3>
+      <img src="assets/imgs/Saved_Images_Off.svg" (click)="changeView($event, 'images', 'assets/imgs/Saved_Images_On.svg', 'assets/imgs/Saved_Images_Off.svg')" class="view-nav" *ngIf="param != 1"/>
+      <img src="assets/imgs/Saved_Images_On.svg" class="view-nav" *ngIf="param == 1"/>
+    </ion-col>
+    <ion-col text-center col-3>
+      <img src="assets/imgs/Folders_Off.svg" (click)="changeView($event, 'folders', 'assets/imgs/Folders_On.svg', 'assets/imgs/Folders_Off.svg')" class="view-nav" *ngIf="param != 2"/>
+      <img src="assets/imgs/Folders_On.svg" class="view-nav" *ngIf="param == 2"/>
+    </ion-col>
+    <ion-col text-center col-3>
+      <img src="assets/imgs/More_Off.svg" (click)="changeView($event, 'more', 'assets/imgs/More_On.svg', 'assets/imgs/More_Off.svg')" class="view-nav" *ngIf="param != 3"/>
+      <img src="assets/imgs/More_On.svg" class="view-nav" *ngIf="param == 3"/>
+    </ion-col>
+  </ion-row>
+</ion-footer>

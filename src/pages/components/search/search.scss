@@ -1,0 +1,52 @@
+search-component {
+    .search-wrapper {
+        input[clearInput].text-input {
+            border-radius: 5px;
+            background: #e2ebea url(../assets/imgs/Search_Icon.svg) no-repeat calc(50% - 36px) center;
+            background-size: 14px;
+            margin: 0;
+            height: 30px;
+            padding: 0 15px 0 calc(50% - 20px);
+            width: 100%;
+            transition: all 375ms;
+
+        }
+
+        input[clearInput].text-input.not-empty {
+            background-position: 15px center;
+            padding-left: 45px;
+        }
+
+        input[clearInput].text-input:focus {
+            background-position: 15px center;
+            padding-left: 45px;
+            width: calc(100% - 58px);
+        }
+
+        .input-cover {
+            pointer-events: none;
+        }
+
+        button.text-input-clear-icon,
+        button.text-input-clear-icon:hover {
+            right: 0;
+            background: none;
+            width: auto;
+        }
+
+        button.text-input-clear-icon .button-effect {
+            display: none;
+        }
+
+        button.text-input-clear-icon .button-inner:before {
+            content: 'Cancel';
+            text-transform: none;
+            color: #00b6c2;
+        }
+
+        input[clearInput].text-input:focus + button.text-input-clear-icon,
+        input[clearInput].text-input:focus + button.text-input-clear-icon:hover {
+            display: block;
+        }
+    }
+}

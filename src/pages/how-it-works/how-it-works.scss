@@ -1,0 +1,42 @@
+how-it-works {
+    ion-header {
+        border-bottom: 1px solid #d9d9d9;
+    }
+
+    ion-content .scroll-content,
+    ion-content .fixed-content {
+        background-color: #f5fffe;
+    }
+
+    .swiper-slide {
+        align-items: start;
+    }
+
+    .slide-number {
+        padding: 15px 0;
+        font-family: nunito-sans-regular;
+        font-size: 36px;
+        line-height: 36px;
+        color: #b4bfc5;
+    }
+
+    .description {
+        font-family: nunito-sans-regular;
+        font-size: 21px;
+        line-height: 25px;
+        color: #505c6c;
+        margin-top: 20px;
+    }
+
+    .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background: #b4bfc5;
+        opacity: 1;
+    }
+
+    .swiper-pagination-bullet-active {
+        background: #283449;
+    }
+
+}

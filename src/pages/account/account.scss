@@ -1,0 +1,44 @@
+account {
+    ion-header {
+        border-bottom: 1px solid #d9d9d9;
+    }
+
+    ion-content .scroll-content,
+    ion-content .fixed-content {
+        background-color: #f5fffe;
+        margin-bottom: 50px;
+        padding-top: 10px;
+    }
+
+    .account-info {
+        margin-top: 40px;
+        min-height: 100px;
+    }
+
+    .signed-out,
+    .signed-in .name {
+        font-size: 36px;
+        line-height: 36px;
+        font-family: nunito-sans-regular;
+    }
+
+    .signed-out {
+        color: #c0c9c8;
+    }
+
+    .signed-in {
+        .name {
+            color: #1f1f1f;
+        }
+
+        .email {
+            font-family: nunito-sans-regular;
+            font-size: 14px;
+            line-height: 14px;
+        }
+    }
+
+    ion-item.item.item-block .item-inner {
+        border-top: 0.55px solid #dfe3e4;
+    }
+}

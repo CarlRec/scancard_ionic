@@ -1,0 +1,52 @@
+<ion-header>
+    <div class="page-title">
+        <div *ngIf="backBtn" class="back-btn" (click)="returnBack()">
+            <img src="assets/imgs/Arrow_Left_Back.svg">
+            Folders
+        </div>
+        {{ pageTitle }}
+    </div>
+</ion-header>
+<ion-content padding>
+    <search-component (notifyImages)="getSearchString($event)" *ngIf="!folder"></search-component>
+    <div>{{searchString}}</div>
+    <div class="folder-description" *ngIf="folder && folderDescription" padding-left padding-right padding-bottom>
+        {{ folderDescription }}
+    </div>
+    <div class="images-wrapper">
+        <div class="saved-image" *ngFor="let image of images | FilterPipe: searchString : searchList" (click)="seeImage(image.id)">
+            <div class="image-title">{{ image.name }}</div>
+            <div class="image-props clearfix">
+                <div class="results" float-left>
+                    <img src="assets/imgs/Read_Result_Icon.svg">
+                    <span class="result-count">{{ image.results }}</span>
+                </div>
+                <div class="favorite" float-right>
+                    <img src="assets/imgs/Favorite_Icon_full.svg" *ngIf="!image.favorite">
+                    <img src="assets/imgs/Favorite_Icon_full_blue.svg" *ngIf="image.favorite">
+                </div>
+            </div>
+            <div class="img-wrapper">
+                <img src="{{ image.src }}">
+            </div>
+        </div>
+        <div class="saved-image" *ngFor="let img of storage | FilterPipe: searchString : searchList" (click)="seeImageFromStorage(img.storageId)">
+            <div class="image-title">{{ img.name }}</div>
+            <div class="image-props clearfix">
+                <div class="results" float-left>
+                    <img src="assets/imgs/Read_Result_Icon.svg">
+                    <span class="result-count">{{ img.results }}</span>
+                </div>
+                <div class="favorite" float-right>
+                    <img src="assets/imgs/Favorite_Icon_full.svg" *ngIf="!img.favorite">
+                    <img src="assets/imgs/Favorite_Icon_full_blue.svg" *ngIf="img.favorite">
+                </div>
+            </div>
+            <div class="img-wrapper">
+                <img src="{{ img.src }}">
+            </div>
+        </div>
+    </div>
+</ion-content>
+<custom-footer [param]="1" *ngIf="!folder"></custom-footer>
+<custom-footer [param]="-1" *ngIf="folder"></custom-footer>

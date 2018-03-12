@@ -1,0 +1,109 @@
+<ion-header>
+    <div class="page-title">
+        <div class="back-btn" (click)="returnBack()">
+            <img src="assets/imgs/Arrow_Left_Back.svg">
+            Account
+        </div>
+        <span *ngIf="loginPage">Sign in</span>
+        <span *ngIf="!loginPage">Sign up</span>
+    </div>
+</ion-header>
+<ion-content padding>
+    <form #formLogin="ngForm" (ngSubmit)="login(formLogin)" novalidate *ngIf="loginPage">
+         <span *ngIf="errors.loginError">
+            <ion-label color="danger" class="error-label">Wrong credentials. Check your Email and password.</ion-label>
+        </span>
+        <ion-item>
+            <ion-input type="email" required placeholder="Email" [(ngModel)]="loginCredentials.email" name="email"
+                       #email="ngModel" [ngClass]="{'required': showErrorsLogin && email.errors}"
+            pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}">
+            </ion-input>
+        </ion-item>
+        <span *ngIf="showErrorsLogin && email.errors">
+            <span [hidden]="!email.errors.required">
+                <ion-label color="danger" class="error-label">Email is required.</ion-label>
+            </span>
+            <span [hidden]="!email.errors.pattern">
+                <ion-label color="danger" class="error-label">Invalid Email Address</ion-label>
+            </span>
+        </span>
+        <ion-item class="password-field-wrapper">
+            <ion-input [type]="getTypeLogin()" required placeholder="Password" [(ngModel)]="loginCredentials.password" name="password"
+                       #password="ngModel" [ngClass]="{'required': showErrorsLogin && password.errors}">
+            </ion-input>
+            <ion-icon name="eye" item-right (click)="toggleTextPasswordLogin()" class="eye-icon-show">
+                <span class="show-text" *ngIf="isActiveToggleTextPasswordLogin">Show</span>
+                <span class="show-text" *ngIf="!isActiveToggleTextPasswordLogin">Hide</span>
+            </ion-icon>
+        </ion-item>
+        <span *ngIf="showErrorsLogin && password.errors">
+            <span [hidden]="!password.errors.required">
+                <ion-label color="danger" class="error-label">Password is required.</ion-label>
+            </span>
+        </span>
+        <button ion-button color="cyan-bg" type="submit" block class="submit-btn">Sign in</button>
+    </form>
+
+    <form #formRegister="ngForm" (ngSubmit)="register(formRegister)" novalidate *ngIf="!loginPage">
+         <span *ngIf="errors.registerError">
+            <ion-label color="danger" class="error-label">Oops. Something went wrong.</ion-label>
+        </span>
+        <span *ngIf="errors.userError">
+            <ion-label color="danger" class="error-label">This Email is already in use.</ion-label>
+        </span>
+        <ion-item>
+            <ion-input type="text" required placeholder="Name" [(ngModel)]="registerCredentials.name" name="name"
+                       #name="ngModel" [ngClass]="{'required': showErrorsRegister && name.errors}">
+            </ion-input>
+        </ion-item>
+        <span *ngIf="showErrorsRegister && name.errors">
+            <span [hidden]="!name.errors.required">
+                <ion-label color="danger" class="error-label">Name is required.</ion-label>
+            </span>
+        </span>
+        <ion-item>
+            <ion-input type="email" required placeholder="Email" [(ngModel)]="registerCredentials.email" name="email"
+                       #emailRegister="ngModel" [ngClass]="{'required': showErrorsRegister && emailRegister.errors}">
+            </ion-input>
+        </ion-item>
+        <span *ngIf="showErrorsRegister && emailRegister.errors">
+            <span [hidden]="!emailRegister.errors.required">
+                <ion-label color="danger" class="error-label">Email is required.</ion-label>
+            </span>
+            <!--<span [hidden]="!emailRegister.errors.pattern">-->
+                <!--<ion-label color="danger" class="error-label">Invalid Email Address</ion-label>-->
+            <!--</span>-->
+        </span>
+        <ion-item class="password-field-wrapper">
+            <ion-input [type]="getTypeRegister()" required placeholder="Password" [(ngModel)]="registerCredentials.password" name="password"
+                       #passwordRegister="ngModel" [ngClass]="{'required': showErrorsRegister && passwordRegister.errors}">
+            </ion-input>
+            <ion-icon name="eye" item-right (click)="toggleTextPasswordRegister()" class="eye-icon-show">
+                <span class="show-text" *ngIf="isActiveToggleTextPasswordRegister">Show</span>
+                <span class="show-text" *ngIf="!isActiveToggleTextPasswordRegister">Hide</span>
+            </ion-icon>
+        </ion-item>
+        <span *ngIf="showErrorsRegister && passwordRegister.errors">
+            <span [hidden]="!passwordRegister.errors.required">
+                <ion-label color="danger" class="error-label">Password is required.</ion-label>
+            </span>
+        </span>
+        <button ion-button color="cyan-bg" type="submit" block class="submit-btn">Sign up</button>
+    </form>
+
+    <div class="or-text">or simply</div>
+
+    <button ion-button color="facebook" type="button" block class="social-btn"><img src="assets/imgs/Facebook.svg">Sign up with facebook</button>
+    <button ion-button color="google" type="button" block class="social-btn"><img src="assets/imgs/Google_Plus.svg">Sign up with Google</button>
+
+    <a class="create-new" (click)="goToPage('register')" *ngIf="loginPage">Create a new account</a>
+    <a class="create-new" (click)="goToPage('login')" *ngIf="!loginPage">Already registered?</a>
+
+    <div class="agree">
+        <p>By signing up / signing in</p>
+        <p>I agree to Scannoo's</p>
+        <p><a (click)="goToPage('terms')">Terms of Service</a> and</p>
+        <p><a (click)="goToPage('privacy')">Privacy Policy.</a></p>
+    </div>
+
+</ion-content>

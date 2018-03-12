@@ -1,0 +1,16 @@
+<ion-header>
+    <div class="page-title">
+        <div class="back-btn" (click)="navCtrl.pop()">
+            <img src="assets/imgs/Arrow_Left_Back.svg">
+            Edit
+        </div>
+        Crop
+        <div class="crop-btn" (click)="cropImg()">Crop</div>
+    </div>
+</ion-header>
+<ion-content id="crop-content">
+    <img [src]="image.src" id="croppr"/>
+    <div id="canvas-wrapper">
+        <canvas id="canvas"></canvas>
+    </div>
+</ion-content>

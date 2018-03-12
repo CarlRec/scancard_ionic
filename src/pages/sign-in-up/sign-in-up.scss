@@ -1,0 +1,108 @@
+sign-in-up {
+    ion-header {
+        border-bottom: 1px solid #d9d9d9;
+    }
+
+    ion-content .scroll-content,
+    ion-content .fixed-content {
+        background-color: #f5fffe;
+    }
+
+    form ion-item.item.item-block:first-child input {
+        margin: 0 0 11px;
+    }
+
+    form ion-item.item.item-block.password-field-wrapper {
+
+        .item-inner {
+            position: relative;
+        }
+
+         input {
+            padding-right: 80px;
+        }
+
+        .eye-icon-show {
+            position: absolute;
+            top: 50%;
+            right: 16px;
+            transform: translateY(-50%);
+            margin: 0;
+            color: #5a5e5f;
+            font-size: 15px;
+            line-height: 28px;
+
+            .show-text {
+                font-family: nunito-sans-regular;
+            }
+        }
+
+        .eye-icon-show::before {
+            content: '';
+            width: 20px;
+            height: 28px;
+            background: url(../../assets/imgs/Show.svg) no-repeat center center;
+            background-size: 15px 9px;
+            vertical-align: middle;
+            margin-right: 2px;
+        }
+    }
+
+    button.button.button-block {
+        line-height: 22px;
+        font-family: quicksand-bold;
+        font-size: 18px;
+        border-radius: 5px;
+        padding: 14px 19px;
+        text-transform: none;
+        height: 50px;
+    }
+
+    form button.submit-btn {
+        margin: 10px 0 20px;
+    }
+
+    .or-text {
+        margin-bottom: 20px;
+        font-family: nunito-sans-regular;
+        font-size: 15px;
+        line-height: 15px;
+        color: #a6afae;
+        text-align: center;
+    }
+
+    .social-btn {
+        margin-bottom: 20px;
+        font-size: 18px;
+        img {
+            vertical-align: middle;
+            height: 18px;
+            margin-right: 10px;
+        }
+    }
+
+    a {
+        font-family: nunito-sans-regular;
+        font-size: 15px;
+        color: #01acbe;
+    }
+
+    .create-new {
+        display: block;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .agree {
+        font-family: nunito-sans-regular;
+        font-size: 15px;
+        color: #a8b1b0;
+        text-align: center;
+        p {
+            margin: 0;
+            line-height: 18px;
+        }
+    }
+
+
+}

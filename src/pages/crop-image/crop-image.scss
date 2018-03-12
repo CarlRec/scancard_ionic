@@ -1,0 +1,152 @@
+crop-image {
+    ion-header {
+        border-bottom: none;
+        background: map_get($colors, camera-bg);
+        .page-title {
+            color: #fff;
+        }
+
+        .crop-btn {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            color: #00ADBF;
+            font-family: nunito-sans-regular;
+            font-size: 16px;
+            line-height: 16px;
+        }
+    }
+
+    #crop-content {
+        background: map_get($colors, camera-bg);
+    }
+
+    .croppr-container * {
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+
+    .croppr-container img {
+        vertical-align: middle;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .croppr {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .croppr-overlay {
+        background: rgba(0,0,0,0.5);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        cursor: crosshair;
+    }
+
+    .croppr-region {
+        //border: 1px dashed rgba(0, 0, 0, 0.5);
+        position: absolute;
+        z-index: 3;
+        cursor: move;
+        top: 0;
+    }
+
+    .croppr-imageClipped {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .croppr-handle {
+        //border: 1px solid black;
+        //background-color: white;
+        //width: 10px;
+        //height: 10px;
+        background-color: #41c3e3;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 4;
+        top: 0;
+        display: none;
+    }
+
+    .croppr-handle:first-child,
+    .croppr-handle:nth-child(5) {
+        display: block;
+    }
+
+    #croppr-corners {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        .upper-left {
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 50px;
+            height: 50px;
+            //border-top: 3px solid #9694a9;
+            border-top: 4px solid rgba(255, 255, 255, 0.5);
+            border-left: 4px solid rgba(255, 255, 255, 0.5);
+            pointer-events: none;
+        }
+
+        .upper-right {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 50px;
+            height: 50px;
+            border-top: 4px solid rgba(255, 255, 255, 0.5);
+            border-right: 4px solid rgba(255, 255, 255, 0.5);
+            pointer-events: none;
+        }
+
+        .lower-left {
+            position: absolute;
+            bottom: -2px;
+            left: -2px;
+            width: 50px;
+            height: 50px;
+            border-bottom: 4px solid rgba(255, 255, 255, 0.5);
+            border-left: 4px solid rgba(255, 255, 255, 0.5);
+            pointer-events: none;
+        }
+
+        .lower-right {
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            width: 50px;
+            height: 50px;
+            border-bottom: 4px solid rgba(255, 255, 255, 0.5);
+            border-right: 4px solid rgba(255, 255, 255, 0.5);
+            pointer-events: none;
+        }
+
+    }
+
+    #canvas-wrapper {
+        height: 0;
+        overflow: hidden;
+    }
+}

@@ -1,0 +1,59 @@
+<ion-header id="camera-header">
+    <div class="close-camera">
+        <img src="assets/imgs/Close_icon.svg" (click)="closeCamera()" float-right/>
+    </div>
+</ion-header>
+
+<ion-content id="camera-content">
+    <img [src]="image" id="croppr" *ngIf="image"/>
+    <div id="crop-wrapper">
+        <div id="crop-corners">
+            <div class="upper-left"></div>
+            <div class="upper-right"></div>
+            <div class="lower-left"></div>
+            <div class="lower-right"></div>
+        </div>
+    </div>
+    <div class="modes-wrapper" *ngIf="flashMode">
+        <div class="flash-mode flash-on" [ngClass]="{'selected': flash.on}" (click)="changeFlashMode('on')">
+            <img src="assets/imgs/Flash_Yes_Icon.svg" *ngIf="flash.on"/>
+            <img src="assets/imgs/Flash_Yes_Icon_darker.svg" *ngIf="!flash.on"/>
+        </div>
+        <div class="flash-mode flash-off" [ngClass]="{'selected': flash.off}" (click)="changeFlashMode('off')">
+            <img src="assets/imgs/Flash_No_Icon.svg" *ngIf="flash.off"/>
+            <img src="assets/imgs/Flash_No_Icon_darker.svg" *ngIf="!flash.off"/>
+        </div>
+        <div class="flash-mode flash-auto" [ngClass]="{'selected': flash.auto}" (click)="changeFlashMode('auto')">
+            <img src="assets/imgs/Flash_Auto_Icon.svg" *ngIf="flash.auto"/>
+            <img src="assets/imgs/Flash_Auto_Icon_darker.svg" *ngIf="!flash.auto"/>
+        </div>
+    </div>
+
+    <div id="canvas-wrapper">
+        <canvas id="canvas"></canvas>
+    </div>
+</ion-content>
+<ion-footer id="camera-footer">
+    <ion-row align-items-center>
+        <ion-col class="left-col" col-4>
+            <img src="assets/imgs/Gallery_Icon.svg" (click)="seeGallery($event)" class="see-gallery"/>
+        </ion-col>
+        <ion-col text-center col-4 class="center-col">
+            <div class="camera-button-wrapper">
+                <button (click)="takePicture()" class="camera-button">
+                    <span class="camera-btn-span"></span>
+                </button>
+                <div id="camera-btn-overlay"></div>
+            </div>
+        </ion-col>
+        <ion-col text-right class="right-col" col-4>
+
+            <div class="flash-wrapper" (click)="chooseFlashMode()"
+                 [ngClass]="{ 'mode-auto': flash.auto, 'mode-off': flash.off, 'mode-on': flash.on }">
+                <img src="assets/imgs/Flash_Auto_Icon.svg" class="change-flash-mode" *ngIf="flash.auto"/>
+                <img src="assets/imgs/Flash_No_Icon.svg" class="change-flash-mode" *ngIf="flash.off"/>
+                <img src="assets/imgs/Flash_Yes_Icon.svg" class="change-flash-mode" *ngIf="flash.on"/>
+            </div>
+        </ion-col>
+    </ion-row>
+</ion-footer>

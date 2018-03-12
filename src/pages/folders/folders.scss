@@ -1,0 +1,74 @@
+folders {
+    ion-header {
+        border-bottom: 1px solid #d9d9d9;
+    }
+
+    ion-content .scroll-content,
+    ion-content .fixed-content {
+        background-color: #f5fffe;
+        margin-bottom: 50px;
+    }
+
+    .folders-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .folder {
+        width: 48%;
+        position: relative;
+        margin-bottom: 10px;
+    }
+
+    .folder-bg {
+        width: 100%;
+    }
+
+    .folder-text {
+        position: absolute;
+        top: 45%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        font-family: quicksand-bold;
+        font-size: 14px;
+        line-height: 14px;
+        color: #000;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 0 15px;
+    }
+
+    .add-folder .folder-text {
+        color: #C0C8C7;
+    }
+
+    .images-in-folder {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        font-family: nunito-sans-regular;
+        font-size: 12px;
+        line-height: 16px;
+
+        img {
+            height: 16px;
+            margin-right: 5px;
+            vertical-align: top;
+            display: inline-block;
+        }
+    }
+
+    .favorite-folder {
+        position: absolute;
+        bottom: 17px;
+        right: 15px;
+
+        img {
+            height: 12px;
+            display: block;
+        }
+    }
+}

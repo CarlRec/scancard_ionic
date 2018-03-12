@@ -1,0 +1,25 @@
+<ion-content>
+    <div id="text-icon-wrapper" [ngClass]="{ 'camera-photo': !cropValue }">
+        <div class="reading-text">
+            <div id="text-wrapper">
+                {{ reading }}<span id="dots-wrapper"></span>
+            </div>
+        </div>
+        <div class="eyes-wrapper" text-center *ngIf="!cropValue">
+            <div class="eye">
+                <img src="assets/imgs/Eye_Frame.svg" alt="" class="eye-frame">
+                <img src="assets/imgs/Eye_Ball.svg" alt="" class="eye-ball">
+            </div>
+            <div class="eye">
+                <img src="assets/imgs/Eye_Frame.svg" alt="" class="eye-frame">
+                <img src="assets/imgs/Eye_Ball.svg" alt="" class="eye-ball">
+            </div>
+        </div>
+        <div class="scissors-wrapper" *ngIf="cropValue">
+            <img src="assets/imgs/scissors1.gif">
+        </div>
+    </div>
+    <div *ngIf="image" id="taken-image-wrapper">
+        <img [src]="DomSanitizer.bypassSecurityTrustUrl(image)" id="taken-picture"/>
+    </div>
+</ion-content>

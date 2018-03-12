@@ -1,0 +1,33 @@
+<ion-header>
+    <div class="page-title">More</div>
+</ion-header>
+<ion-content>
+    <ion-item (click)="navigateTo('account')">
+        Account
+        <div class="right-arrow">
+            <div class="sign-in-out">
+                <span>{{ signInOut }}</span>
+                <img src="assets/imgs/Arrow_Right.svg">
+            </div>
+        </div>
+    </ion-item>
+    <ion-item (click)="navigateTo('HowItWorks')">
+        How it works
+        <div class="right-arrow">
+            <img src="assets/imgs/Arrow_Right.svg">
+        </div>
+    </ion-item>
+    <ion-item (click)="navigateTo('barcode')">
+        Barcode & QR
+        <div class="right-arrow">
+            <img src="assets/imgs/Arrow_Right.svg">
+        </div>
+    </ion-item>
+    <!--<ion-item (click)="navigateTo('settings')">-->
+        <!--Settings-->
+        <!--<div class="right-arrow">-->
+            <!--<img src="assets/imgs/Arrow_Right.svg">-->
+        <!--</div>-->
+    <!--</ion-item>-->
+</ion-content>
+<custom-footer [param]="3"></custom-footer>

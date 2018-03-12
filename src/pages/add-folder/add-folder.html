@@ -1,0 +1,35 @@
+<ion-header>
+    <div class="page-title">
+        <div class="back-btn" (click)="returnBack()">
+            <img src="assets/imgs/Arrow_Left_Back.svg">
+            Folders
+        </div>
+        Add folder
+    </div>
+</ion-header>
+<ion-content padding>
+    <form #form="ngForm" (ngSubmit)="sendFolder(form)" novalidate>
+        <ion-item>
+            <ion-input type="text" required placeholder="Name" [(ngModel)]="folder.name" name="name" id="name"
+                       #name="ngModel" [ngClass]="{'required': showErrors && name.errors}">
+            </ion-input>
+        </ion-item>
+        <span *ngIf="showErrors && name.errors">
+            <span [hidden]="!name.errors.required">
+                <ion-label color="danger">Name is required.</ion-label>
+            </span>
+        </span>
+        <ion-item>
+            <ion-textarea placeholder="Description(optional)" [(ngModel)]="folder.description"
+                          name="description" rows="3">
+
+            </ion-textarea>
+        </ion-item>
+        <ion-item>
+            <ion-label>Favorite</ion-label>
+            <ion-toggle (ionChange)="folder.featured = !folder.featured" color="cyan-bg" name="favorite"></ion-toggle>
+        </ion-item>
+        <button ion-button color="cyan-bg" type="submit" block class="submit-btn">Add folder</button>
+    </form>
+</ion-content>
+<custom-footer [param]="2"></custom-footer>

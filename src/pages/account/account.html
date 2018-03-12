@@ -1,0 +1,31 @@
+<ion-header>
+    <div class="page-title">
+        <div class="back-btn" (click)="returnBack()">
+            <img src="assets/imgs/Arrow_Left_Back.svg">
+            More
+        </div>
+        Account
+    </div>
+</ion-header>
+<ion-content>
+    <div class="account-info" padding-left padding-right>
+        <div class="signed-out" *ngIf="!signIn">Signed out.</div>
+        <div class="signed-in" *ngIf="signIn">
+            <div class="name">{{ name }}</div>
+            <div class="email">{{ email }}</div>
+        </div>
+    </div>
+    <ion-item (click)="navigateTo('signIn')" *ngIf="!signIn">
+        Sign In
+        <div class="right-arrow">
+            <img src="assets/imgs/Arrow_Right.svg">
+        </div>
+    </ion-item>
+    <ion-item (click)="navigateTo('signOut')" *ngIf="signIn">
+        Sign Out
+        <div class="right-arrow">
+            <img src="assets/imgs/Arrow_Right.svg">
+        </div>
+    </ion-item>
+</ion-content>
+<custom-footer [param]="3"></custom-footer>

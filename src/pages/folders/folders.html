@@ -1,0 +1,31 @@
+<ion-header>
+    <div class="page-title">Folders</div>
+</ion-header>
+<ion-content padding>
+    <search-component (notifyFolders)="getFolderSearchString($event)"></search-component>
+    <div>folder count : {{count}}</div>
+    <div>{{folderSearch}}</div>
+    <div class="folders-wrapper">
+        <div class="add-folder folder" (click)="goToAddFolder()">
+            <img src="assets/imgs/Add_Folder.svg" class="folder-bg">
+            <div class="folder-text">
+                + Add folder
+            </div>
+        </div>
+        <div class="folder existing-folder" *ngFor="let folder of folders | FilterPipe: folderSearch : searchParam" (click)="viewFolder(folder.id)">
+            <img src="assets/imgs/Folder.svg" class="folder-bg">
+            <div class="folder-text">
+                {{ folder.name }}
+            </div>
+            <div class="images-in-folder">
+                <img src="assets/imgs/Image_Counter_Icon.svg">
+                {{ folder.count }}
+            </div>
+            <div class="favorite-folder">
+                <img src="assets/imgs/Favorite_Icon_full.svg" *ngIf="!folder['featured']">
+                <img src="assets/imgs/Favorite_Icon_full_blue.svg" *ngIf="folder['featured']">
+            </div>
+        </div>
+    </div>
+</ion-content>
+<custom-footer [param]="2"></custom-footer>
